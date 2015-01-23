@@ -4059,6 +4059,10 @@ function parseSourceElement() {
                 if (extra.ecmaFeatures.blockBindings) {
                     return parseConstLetDeclaration(lookahead.value);
                 }
+            case "import":
+            case "export":
+                lineNumber++;
+                return;
                 /* falls through */
             default:
                 return parseStatement();
